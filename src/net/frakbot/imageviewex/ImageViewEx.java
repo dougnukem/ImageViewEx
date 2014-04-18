@@ -21,7 +21,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import me.banter.android.R;
 
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -885,7 +884,6 @@ public class ImageViewEx extends ImageView {
         		 * be equal to or larger than the corresponding dimension of the
         		 * view (minus padding). The image is then centered in the view.
         		 */
-
                 if (gWidth * vHeight > vWidth * gHeight) {
                     s = (float) vHeight / (float) gHeight;
                     //x = (vWidth - gWidth * s) * 0.5f;
