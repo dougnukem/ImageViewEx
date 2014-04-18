@@ -21,6 +21,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import me.banter.android.R;
 
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -884,13 +885,15 @@ public class ImageViewEx extends ImageView {
         		 * be equal to or larger than the corresponding dimension of the
         		 * view (minus padding). The image is then centered in the view.
         		 */
-                float minDimensionCenterCrop = Math.min(gWidth, gHeight);
-                if (minDimensionCenterCrop == gWidth) {
-                    s = vWidth / gWidth;
+
+                if (gWidth * vHeight > vWidth * gHeight) {
+                    s = (float) vHeight / (float) gHeight;
+                    //x = (vWidth - gWidth * s) * 0.5f;
+                } else {
+                    s = (float) vWidth / (float) gWidth;
+                    //y = (vHeight - gHeight * s) * 0.5f;
                 }
-                else {
-                    s = vHeight / gHeight;
-                }
+
                 x = (vWidth - gWidth * s) / 2 / (s * mScale);
                 y = (vHeight - gHeight * s) / 2 / (s * mScale);
                 canvas.scale(s, s);
